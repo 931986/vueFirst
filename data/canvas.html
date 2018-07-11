@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            border: 10px yellow;
+            width:100%;
+        		height:100%;
+       		opacity:0.9;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+
+</canvas>
+</body>
+<script>
+    var c=document.getElementById('canvas');
+    var ctx=c.getContext('2d');
+    var img=new Image();
+    img.src='bai.png';
+
+    function  Circle() {
+        this.x=Math.random()*300;
+        this.y=40;
+        this.r=(Math.random()+1)*10;
+        this.a=Math.random()*256;
+        this.b=Math.random()*256;
+        this.c=Math.random()*256;
+        this.paint=function () {
+            ctx.fillStyle="rgb("+this.a+","+this.b+","+this.c+")";
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+            ctx.closePath();
+            ctx.fill();
+        };
+        this.step=function () {
+            this.y++;
+        }
+
+    }
+    var circleAll=[];
+    function  creatCircle() {
+        var circle=new Circle();
+        circle.paint();
+        circleAll.push(circle);
+
+    }
+    function paintcircle() {
+        for(var i=0;i<circleAll.length;i++){
+           circleAll[i].paint();
+
+        }
+    }
+    function stepCircle() {
+        for(var i=0;i<circleAll.length;i++){
+            circleAll[i].step();
+        }
+    }
+    var time=0;
+
+        time++;
+        var loop = setInterval(function () {
+            time++;
+if(time%5===0)
+                creatCircle();
+            ctx.drawImage(img,0,0);
+            paintcircle();
+            stepCircle();
+        }, 100);
+
+</script>
+</html>

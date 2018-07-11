@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var it=makeIterator([4,5,6]);
+    var a={};
+    it.next();
+    it.next();
+    function makeIterator(array) {
+        var nextIndex=0;
+        return {
+            next:function () {
+
+                console.log((nextIndex<array.length?{value:array[nextIndex++]}:{value:undefined}).value);
+               return nextIndex<array.length?{value:array[nextIndex++]}:{value:undefined};
+
+            }
+        }
+    }
+    var arr=[1,2,3];
+    var iter=arr[Symbol.iterator]();
+    console.log(iter.next().value);
+    const x=new Set();
+    [2, 3, 5, 4, 7,8].forEach(m => x.add(m));
+
+    for (var i of x) {
+        console.log(i);
+    }
+
+const funs=[];
+    for(let i=0;i<5;i++){
+
+        funs.push(function(){
+            console.log(i);
+        })
+    }
+    console.log(funs);
+    funs.forEach(fun=>fun());
+
+</script>
+</html>

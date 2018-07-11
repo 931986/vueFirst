@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function* kplGenerator() {
+          yield 'hello';
+          yield 'Kpl';
+          yield 'I \'m coming '
+          return 'end'
+        }
+        var hw =kplGenerator();
+        hw.next();
+        function *king() {
+          yield('hehe');
+          yield('Go to winter')
+        }
+        var generator=king();
+        setTimeout(function () {
+            generator.next();
+        },100);
+        var arr=[1,[2,3],[4,5],6];
+        var flat=function* (value) {
+            var length=value.length;
+            for(var i=0;i<length;i++){
+                var item=value[i];
+                if(typeof item !== 'number'){
+                   yield* flat(item);
+                }else{
+                    yield item;
+                }
+            }
+
+        };
+
+        for (var f of flat(arr)){
+console.log(f);
+        }
+        function * ssg(x) {
+            var y=yield x+2;
+            return y;
+        }
+        var g=ssg(1);
+        g.next();
+        g.next(6);
+        //Generator 函数可以自动执行
+        function* gen() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        var g = gen();
+        var res = g.next();
+
+        while(!res.done){
+            console.log(res.value);
+            res = g.next();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

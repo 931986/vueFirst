@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6基础</title>
+</head>
+<body>
+
+</body>
+<script>
+    //数组方法（-）
+var name='shaya';
+console.log(`hello ${name}`);
+const str='hehe';
+console.log(str.repeat(3));
+console.log(str.includes('y'),str.startsWith('hehe'));
+//函数
+    function act(num=200) {
+        console.log(num);
+    }
+    act(300);
+    act();
+    var x=[1,2,3];
+    x.map(x => x+1);
+    console.log(x);
+    const calulate=(x,y,z)=>{
+        x= typeof x!=='number'? 0 : x;
+        y=typeof y!=='number'? 6: y;
+       console.log(x%y===z);
+    }
+    calulate(1,2,3);
+    const myname={
+        name:'sun',
+        get(){
+            console.log(this.name);
+        }
+    };
+    myname.get();
+    const obj=Object.assign({},myname);
+    console.log(obj);
+    //import jsonParer from 'body-parser'
+    //const{body,body:{username,password}=body;
+    //Spread Operation
+    const md=['vue','react'];
+    const mds=[...md,'angular'];
+    const mdss={...myname,second:'hehe'};
+    console.log(mdss);
+//setTimeOut
+    for (var i = 0; i < 5; i++) {
+        console.log(i);
+    };
+    /*for (var i = 0; i < 5; i++) {
+        setTimeout(function() {
+            console.log(i);
+        }, 1000 * i);
+    }*/
+    for (var i = 0; i < 5; i++) {
+        (function(i) {
+            setTimeout(function () {
+                console.log(i);
+            }, 1000 * i);
+        }(i));
+    }
+    for (var i = 0; i < 5; i++) {
+        setTimeout((function(i) {
+            console.log(i);
+        })(i), 1000 * i);
+    }
+setTimeout(function () {
+    console.log(1);
+},0);
+    new Promise(function act() {
+        console.log(2);
+        console.log(3);
+    }).then(function () {
+        console.log(4);
+    });
+    console.log(5);
+</script>
+</html>

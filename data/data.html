@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+<div id="mpp">
+
+</div>
+</body>
+<script>
+    function checktime(value) {
+        if(value<10){
+           value= '0'+value;
+        }
+    }
+    function showtime() {
+        var message = '';
+        var data = new Date();
+        var md=new Date('2018 6/6');
+        var cut=md-data;
+
+
+        var time=new Date('2018/');
+
+        var day = data.getDate();
+var day1=md.getDate();
+        var weekday = data.getDay();
+var weekday1=md.getDay();
+        var hour = data.getHours();
+        var hour1 = md.getHours();
+        var minute = data.getMinutes();
+        var minute1 = md.getMinutes();
+        var m = data.getMonth();
+        var m1=md.getMonth();
+        var month = m + 1;
+        var month1=m1+1;
+        var second = data.getSeconds();
+        var second1=md.getSeconds();
+        var year = data.getFullYear();
+        var year1=md.getFullYear();
+checktime(second);
+        document.getElementById('app').innerHTML = year + "年" + month + '月' + day + '日' + hour + '点' + minute + '分' + second + '秒';
+        document.getElementById('mpp').innerHTML = year1 + "年" + month1 + '月' + day1 + '日' + hour1 + '点' + minute1 + '分' + second1 + '秒';
+
+        setTimeout(showtime,500);
+        var kpl=year + "年" + month + '月' + day + '日' + hour + '点' + minute + '分' + second + '秒';
+        console.log(kpl);
+    }
+    window.onload=function () {
+
+
+showtime();
+
+
+
+
+    };
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function point(x,y) {
+        this.x=x;
+        this.y=y;
+        console.log(x,y);
+    }
+   point.prototype.tosting=function () {
+       return this.x+this.y;
+   };
+
+    var p=new point(1,2);
+    class bar{
+        constructor(x,y){
+            this.x=x.toString();
+            this.y=y.toString();
+        };
+        toStr(){
+            console.log(this.x+this.y);
+    }
+    }
+    var p=new bar(1,2);
+    p.toStr();
+</script>
+</html>
